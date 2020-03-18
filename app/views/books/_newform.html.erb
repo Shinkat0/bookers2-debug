@@ -1,4 +1,16 @@
 <%= form_for(book) do |f| %>
+
+  <% if book.errors.any? %>
+        <div class="alert alert-warning">
+        	<h2><%= book.errors.count %>件のerrorがあります。</h2>
+          <ul>
+            <% book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
 	<div class="field row">
 		<%= f.label :title %>
 		<%= f.text_field :title, class: "col-xs-12 book_title" %>
