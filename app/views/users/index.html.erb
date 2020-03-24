@@ -32,6 +32,9 @@
  						<% end %>
  					</td>
  					<td><%= user.name%></td>
+ 					<td><%= link_to user.relationships.count, users_follows_path %>followsフォロー</td>
+ 					<td><%= user.reverse_of_relationships.count %>followerフォロワー</td>
+ 					<td><%= render 'relationships/follow_button',user: user %></td>
  					<td><%= link_to "Show", user, class: "user_#{user.id}" %></td>
  				</tr>
  				<% end %>
